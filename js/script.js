@@ -52,3 +52,69 @@ document.getElementById('min-bike').innerHTML = `
  * Infine, usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo i nomi e i falli subiti e stampiamo tutti in console
  * Qui facciamo vedere anche block scope, const e let
  */
+
+// Initial teams
+const teams = [
+    {
+        name: 'Palermo',
+        points: 0,
+        fouls: 0,
+    },
+    {
+        name: 'Foggia',
+        points: 0,
+        fouls: 0,
+    },
+    {
+        name: 'Roma',
+        points: 0,
+        fouls: 0,
+    },
+    {
+        name: 'Sassuolo',
+        points: 0,
+        fouls: 0,
+    },
+    {
+        name: 'Cagliari',
+        points: 0,
+        fouls: 0,
+    },
+    {
+        name: 'Pistoiese',
+        points: 0,
+        fouls: 0,
+    },
+];
+
+for(let i = 0; i < teams.length; i++) {
+    teams[i].points = randomNumber(0, 100);
+    teams[i].fouls = randomNumber(0, 100);
+}
+
+// New array Results
+let newArrayResults = [];
+
+for(let i = 0; i < teams.length; i++) {
+    let {name, fouls} = teams[i];
+    newArrayResults.push({
+        name,
+        fouls,
+    });
+}
+
+console.table(newArrayResults);
+
+/**
+ * FUNCTIONS
+ */
+
+/**
+ * Generatore di numeri random
+ * @param {number} min numero di partenza
+ * @param {number} max numero massimo
+ * @returns un numero random compreso tra min e max
+ */
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
