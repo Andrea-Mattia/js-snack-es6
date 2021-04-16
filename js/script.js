@@ -109,10 +109,12 @@ console.table(newArrayResults);
 
 
 /**
- * JS Snack 3
- * Sis scriva una funzione che accetti tre argomenti:
- * un array e due numeri (a più piccolo di b)
- * La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri
+ * jsnack 3
+ * Si scriva una funzione che accetti tre argomenti, un array e due numeri (a
+ * più piccolo di b).
+ * La funzione ritornerà un nuovo array con i valori che hanno la posizione
+ * compresa tra i due numeri
+ * inseriti dall'utente (è possibile usare, ad esempio, for/foreach/filter
  */
 
 console.log('***** JSNACK 3 *****');
@@ -129,13 +131,6 @@ while(isNaN(max) || max < min || max > myArray.length) {
     max = parseInt( prompt('Inserisci un numero tra ' + min + ' e 5') );
 }
 
-// let newArray = [];
-
-
-// filterArray( myArray, min, max)
-// filterArrayForEach(min, max);
-// console.log(newArray);
-
 
 const newFilterArray = myArray.filter((element, index) => {
     return min <= index && max >= index;
@@ -146,9 +141,17 @@ console.log('Array originale', myArray);
 console.log('Array Filtrato:', newFilterArray);
 
 
-// Bonus
+/**
+ * jsnack 4
+ * Dato un'array con dei capi d'abbigliamento - oggetti che contengono
+ * informazioni su nome modello, tipologia e colore - si aggiunga a ciascun
+ * elemento una ulteriore proprietà che indichi il costo del prodotto.
+ * Per inserire il costo del singolo prodotto si scriva una funzione che
+ * generi un numero random da 10 a 50 (potete sfruttare il map per aggiungere
+ * la nuova proprietà)
+ */
 
-console.log('***** BONUS *****');
+console.log('***** JSNACK 4 *****');
 
 const arrayObj = [
     {
@@ -177,7 +180,7 @@ const arrayObj = [
 const newArrayObj = arrayObj.map((element) => {
     const newElement = {
         ...element,
-        position: randomNumber(0, 5)
+        price: randomNumber(0, 50)
     }
 
     return newElement;
@@ -205,21 +208,3 @@ console.log('Nuovo array:', newArrayObj);
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-
-// function filterArray(arr, min, max) {
-//     for(let i = 0; i < arr.length; i++) {
-//         const tmp = arr[i];
-//         if (min <= i && max >= i) {
-//             newArray.push(tmp);
-//         }
-//     }
-// }
-
-// function filterArrayForEach(min, max) {
-//     myArray.forEach((element, index) => {
-//         if (min <= index && max >= index) {
-//             newArray.push(element);
-//         }
-//     });
-// }
